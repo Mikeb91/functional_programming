@@ -14,6 +14,6 @@ public class _Supplier {
     }
 
     static Supplier<String> getDbConnectionUrlSupplier = () ->
-            "jdbc://localhost:5432/users";
+            "jdbc://localhost:5432/users"; // Takes no arguments but suply a value.
 
 }

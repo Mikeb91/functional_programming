@@ -3,6 +3,7 @@ package streams;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 
@@ -17,11 +18,16 @@ public class _Stream {
                 new Person("Alex", Gender.MALE),
                 new Person("Alice", Gender.FEMALE)
         );
-        people.stream()
-                .map(person -> person.gender)
-                .collect(Collectors.toSet())
-                .forEach(System.out::println);
+//        people.stream()
+//                .map(person -> person.gender)
+//                .collect(Collectors.toSet())
+//                .forEach(System.out::println);
 
+        Predicate<Person> personPredicate = person -> person.gender.equals(Gender.FEMALE);
+        boolean containsOnlyFemales = people.stream()
+                .anyMatch(personPredicate);
+
+        System.out.println(containsOnlyFemales);
     }
 
     static class Person {
